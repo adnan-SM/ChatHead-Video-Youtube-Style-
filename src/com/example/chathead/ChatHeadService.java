@@ -43,11 +43,9 @@ public class ChatHeadService extends Service implements OnPreparedListener,Surfa
 
 	  class MyGestureDetector extends SimpleOnGestureListener implements OnTouchListener{
 		  
-		  
 	        @Override
 	        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 	        	
-	        	Toast.makeText(getApplicationContext(), "came in onFling", 500).show();
 	            try {
 	                if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
 	                    return false;
@@ -60,8 +58,7 @@ public class ChatHeadService extends Service implements OnPreparedListener,Surfa
 	                    sView.startAnimation(swipeRight);
 	                    stopSelf();
 	                    mp.stop();
-	                   
-	                    
+
 	                }
 	            } catch (Exception e) {
 	                // nothing

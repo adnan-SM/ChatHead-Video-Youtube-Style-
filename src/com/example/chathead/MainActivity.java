@@ -42,24 +42,22 @@ public class MainActivity extends Activity {
 			public View getView(int position, View convertView, ViewGroup parent) {
 			    View view = super.getView(position, convertView, parent);
 			    TextView text = (TextView) view.findViewById(android.R.id.text1);
-			    
 			    text.setTextColor(Color.BLACK);
-			  
 			    return view;
+			    
 			  }
+			  
 			};
 		
 		mVidList.setAdapter(adapter);
-		
 		mVidList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
-				
+						
 					stopService(serviceIntent);
 					serviceIntent.putExtra("url", urlList.get(position));
-					Toast.makeText(getApplicationContext(), ""+urlList.get(position), 500).show();
 					service = startService(serviceIntent);
 			}
 		});
@@ -67,14 +65,8 @@ public class MainActivity extends Activity {
 		
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
-	
-	
+
+
 	public void populateUrlList(){
 		urlList.add("rtsp://46.249.213.87:554/playlists/9xm_hvga.hpl.3gp");
 		urlList.add(" rtsp://46.249.213.87:554/playlists/imtv_hvga.hpl.3gp");
